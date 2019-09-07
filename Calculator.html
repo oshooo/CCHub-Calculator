@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<style>
+		table{
+			border-collapse: collapse;
+		}.display{
+			width: 207px;
+			height: 60px;
+			font-size: 2em;
+			font-family: monospace;
+			padding: 10px;
+			padding-bottom: 0px;
+			box-sizing: border-box;
+			direction: rtl;
+			background-color: ;
+		}
+		.digits{
+			width: 50px;
+			height: 50px;
+			font-size: 1.5em;
+			font-family: Haettenschweiler;
+			background-color: aliceblue;
+			border: 0pc;
+		}header{
+			background-color: aqua;
+			padding-top : 5px;
+			text-align: center;
+		}main{
+			position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateX(-50%)translateY(-50%);
+			background-color: rgb(207, 207, 126);
+		}body{
+			padding: 0px;
+			margin: 0px;
+			background-color: blueviolet;
+		}footer{
+			background-color: aqua;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<header><h1>Calculator</h1></header>
+	<main>
+		<form name="form">
+			<input type="text" name="textarea" class="display" autofocus="" readonly="">
+		</form>
+		
+		<table>
+			<tr>
+				<td><input type="button" name="digits" class="digits clear" value="CE" 	onclick="clears()"></td>
+				<td><input type="button" name="digits" class="digits clear" value="C" 	onclick="clears()"></td>
+				<td><input type="button" name="digits" class="digits back" value="←" 	onclick="del()"></td>
+				<td><input type="button" name="digit" class="digits operator" value="÷" onclick="insert('/')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="digit" class="digits digit" value="1" 	onclick="insert('1')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="2" 	onclick="insert('2')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="3" 	onclick="insert('3')"></td>
+				<td><input type="button" name="digit" class="digits operator" value="+" onclick="insert('+')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="digit" class="digits digit" value="4" 	onclick="insert('4')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="5" 	onclick="insert('5')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="6" 	onclick="insert('6')"></td>
+				<td><input type="button" name="digit" class="digits operator" value="-" onclick="insert('-')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="digit" class="digits digit" value="7" 	onclick="insert('7')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="8" 	onclick="insert('8')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="9" 	onclick="insert('9')"></td>
+				<td><input type="button" name="digit" class="digits operator" value="x" onclick="insert('*')"></td>
+			</tr>
+			<tr>
+				<td><input type="button" name="digit" class="digits digit" value="." 	onclick="insert('.')"></td>
+				<td><input type="button" name="digit" class="digits digit" value="0" 	onclick="insert('0')"></td>
+				<td colspan="2"> <input type="button" name="evaluate" class="digits equal" value="=" onclick="equal()" style="width: 100%; font-size: 2rem;"> </td>
+			</tr>	
+		</table>
+		
+	</main>
+
+
+	<script type="text/javascript">
+		let output = document.form.textarea;
+
+		function clears(){
+			output.value = ""
+		}
+		function insert(num){
+			output.value = output.value + num
+		}function del(){
+			const gen = document.form.textarea;
+			
+			gen.value = gen.value.substring(0, gen.value.length-1);
+		}function equal(){
+
+			if(output.value)
+			{
+				output.value = eval(output.value)
+			}
+		}
+	</script>
+</body>
+</html>
